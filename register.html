@@ -6,23 +6,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
 
 <head>
-    <title>Baggage Ecommerce Category Bootstrap Responsive Web Template | Sign Up :: W3layouts</title>
+    <title></title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script>
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
-
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
+    <meta name="keywords" content="" />
+    <script src="js/md5.min.js"></script>
+    <script src="js/main.js"></script>
     <!-- //Meta tag Keywords -->
     <!-- Custom-Files -->
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -97,6 +90,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     </div>
 
+    <div id="ventana" class="ligthbox hidden">
+        <div class="contenido-ventana">
+            <h1>¡Registro completo!🥳</h1>
+            <p class="modal-body">Ya puedes ingresar al sitio, bienvenid@</p>
+            <button type="button" id="btn_cerrar_modal">Ok</button>
+        </div>
+    </div>
+
     <!-- //banner-->
     <!--/login -->
     <section class="banner-bottom py-5">
@@ -106,32 +107,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <span class="fa fa-user-circle-o"></span>
                 </div>
                 <div class="content-bottom">
-                    <form action="#" method="post">
+                    <form action="" id="formulario">
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="text1" id="text1" type="text" value="" placeholder="User Name" required="">
+                                <input name="nombre" id="nombre" type="text" value="" placeholder="Ingrese el nombre" required="">
                             </div>
                         </div>
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="text1" id="text1" type="email" value="" placeholder="User Email" required="">
+                                <input name="correo" id="correo" type="email" value="" placeholder="Ingrese el correo" required="">
                             </div>
                         </div>
                         <div class="field-group">
 
                             <div class="content-input-field">
-                                <input name="text1" id="text3" type="text" value="" placeholder="UserPhone" required="">
+                                <input name="celular" id="celular" type="tel" value="" placeholder="Ingrese el celular" required="" title="El formato del celular es 300-000-00-00" pattern="[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}">
                             </div>
                         </div>
                         <div class="field-group">
                             <div class="content-input-field">
-                                <input name="password" id="myInput" type="Password" placeholder="Password">
+                                <input pattern=".{6,}" name="clave" id="clave" type="Password" title="La clave debe tener minimo 6 caracteres" placeholder="Ingrese la clave" required="">
                             </div>
                         </div>
                         <div class="content-input-field">
-                            <button type="submit" class="btn">Sign Up</button>
+                            <button type="submit" id="btn_enviar" class="btn">Registrarse</button>
                         </div>
                         <div class="list-login-bottom text-center mt-lg-5 mt-4">
 

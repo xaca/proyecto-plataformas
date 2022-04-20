@@ -49,21 +49,24 @@
 	</script>
 </head>
 <body>
+	
 	<dialog id="ventana">
 		<h1>¡Registro completo!🥳</h1>
 		<p>Ya puedes ingresar al sitio, bienvenid@</p>
 		<button id="btn_cerrar_modal">Ok</button>
 	</dialog>
+
 	<form action="" id="formulario">
 		
-		<label for="">
-			<input type="email" id="correo" placeholder="Ingrese el correo" required>
+		<label for="correo">
+			Correo:
+			<input type="email" name="correo" id="correo" placeholder="Ingrese el correo" required>
 		</label><br>
 
-		<label for="">
-			<input type="password" id="clave" placeholder="Ingrese la clave" required>
+		<label for="clave">
+			Clave:
+			<input type="password" name="clave" id="clave" placeholder="Ingrese la clave" required>
 		</label><br>
-
 
 		<input id="btn_enviar" type="submit" value="Registrarse">
 

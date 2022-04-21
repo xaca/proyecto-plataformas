@@ -1,7 +1,7 @@
 let btn_enviar, btn_cerrar_modal, formulario, ventana;
 let correo,clave, usuario, mensaje;
 
-window.onload = function(){
+function iniciarLogin(){
 	btn_enviar = document.getElementById("btn_enviar");
 	btn_cerrar_modal = document.getElementById("btn_cerrar_modal");
 	mensaje = document.querySelector("#ventana p");

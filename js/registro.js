@@ -1,7 +1,7 @@
 let btn_enviar, btn_cerrar_modal, formulario, ventana;
 let correo,clave,nombre,celular, usuario;
 
-window.onload = function(){
+function iniciarRegistro(){
 	btn_enviar = document.getElementById("btn_enviar");
 	btn_cerrar_modal = document.getElementById("btn_cerrar_modal");
 	correo = document.getElementById("correo");
@@ -12,8 +12,6 @@ window.onload = function(){
 	formulario = document.getElementById("formulario");
 	formulario.addEventListener("submit",procesarRegistro);
 	btn_cerrar_modal.addEventListener("click",cerrarVentana);
-
-	setTimeout(hideURLbar, 0);
 
 }
 
@@ -50,8 +48,4 @@ function procesarRegistro(evento){
 
 	//console.log(evento.target);
 
-}
-
-function hideURLbar() {
-    window.scrollTo(0, 1);
 }

@@ -1,16 +1,36 @@
 let btn_enviar, btn_cerrar_modal, formulario, ventana;
-let correo,clave, usuario, mensaje;
+let correo,clave, usuario, imagen, titulo,mensaje;
 
 function iniciarLogin(){
 	btn_enviar = document.getElementById("btn_enviar");
 	btn_cerrar_modal = document.getElementById("btn_cerrar_modal");
 	mensaje = document.querySelector("#ventana p");
+	titulo = document.querySelector("#ventana h1");
+	imagen = document.querySelector("#ventana span");
 	correo = document.getElementById("correo");
 	clave = document.getElementById("clave");
 	ventana = document.querySelector("#ventana");
 	formulario = document.getElementById("formulario");
 	formulario.addEventListener("submit",procesarLogin);
 	btn_cerrar_modal.addEventListener("click",cerrarVentana);
+}
+
+function mensaje_exito(texto_mensaje){
+    imagen.innerHTML = "🥳"; 
+    btn_cerrar_modal.innerHTML = "Continuar";
+    titulo.innerHTML = "Yayy!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_exito_texto");
+    btn_cerrar_modal.classList.add("color_exito_texto","color_exito_borde");
+}
+
+function mensaje_error(texto_mensaje){
+	imagen.innerHTML = "😥"; 
+    btn_cerrar_modal.innerHTML = "Intenta nuevamente";
+    titulo.innerHTML = "Oops!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_error_texto");
+    btn_cerrar_modal.classList.add("color_error_texto","color_error_borde");
 }
 
 function abrirVentana(){
@@ -34,7 +54,7 @@ function procesarLogin(evento){
 	
 	if(usuario){
 		if(usuario.correo === txt_correo && usuario.clave === txt_clave){
-			mensaje.innerHTML = "Login exitoso";
+			mensaje_exito("Muy bien, logueo exitoso, continua disfrutando del sitio.");
 		}
 		else{
 			error = true;
@@ -44,7 +64,7 @@ function procesarLogin(evento){
 	}
 
 	if(error){
-		mensaje.innerHTML = "Valida los datos";
+		mensaje_error("Revisa los datos, ocurrio un error.");
 	}
 
 	abrirVentana();

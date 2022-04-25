@@ -1717,3 +1717,55 @@ h3.sub-w3ls-headf {
     border-radius: 10px;
     padding: 20px;
 }
+#btn_cerrar_modal{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 150px;
+    margin-left: -75px;
+    background: white;
+    border-radius: 10px;
+    height: 49px;
+    line-height: 17px;
+}
+.contenido-ventana p{
+    position: absolute;
+    top: 125px;
+    left: 50px;
+    text-align: center;
+    width: 400px;
+    height: 70px;
+}
+.contenido-ventana span{
+    position: absolute;
+    left: 50%;
+    width: 50px;
+    margin-left: -25px;
+    height: 50px;
+    text-align: center;
+    font-size: 40px;
+}
+.contenido-ventana h1{
+    position: absolute;
+    left: 50%;
+    width: 140px;
+    margin-left: -70px;
+    height: 40px;
+    text-align: center;
+    top: 71px;
+}
+.color_exito_texto{
+    color: #0df50d;
+}
+ 
+.color_exito_borde{
+    border: 1px solid #0df50d;
+}   
+
+.color_error_texto{
+    color: #e74147;
+}
+ 
+.color_error_borde{
+    border: 1px solid #e74147;
+}   

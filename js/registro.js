@@ -1,5 +1,5 @@
 let btn_enviar, btn_cerrar_modal, formulario, ventana;
-let correo,clave,nombre,celular, usuario;
+let correo,clave,nombre,celular, usuario,imagen, titulo,mensaje;
 
 function iniciarRegistro(){
 	btn_enviar = document.getElementById("btn_enviar");
@@ -9,10 +9,33 @@ function iniciarRegistro(){
 	celular = document.getElementById("celular");
 	clave = document.getElementById("clave");
 	ventana = document.getElementById("ventana");
+
+	mensaje = document.querySelector("#ventana p");
+	titulo = document.querySelector("#ventana h1");
+	imagen = document.querySelector("#ventana span");
+
 	formulario = document.getElementById("formulario");
 	formulario.addEventListener("submit",procesarRegistro);
 	btn_cerrar_modal.addEventListener("click",cerrarVentana);
 
+}
+
+function mensaje_exito(texto_mensaje){
+    imagen.innerHTML = "🥳"; 
+    btn_cerrar_modal.innerHTML = "Continuar";
+    titulo.innerHTML = "Yayy!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_exito_texto");
+    btn_cerrar_modal.classList.add("color_exito_texto","color_exito_borde");
+}
+
+function mensaje_error(texto_mensaje){
+	imagen.innerHTML = "😥"; 
+    btn_cerrar_modal.innerHTML = "Intenta nuevamente";
+    titulo.innerHTML = "Oops!";
+    mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_error_texto");
+    btn_cerrar_modal.classList.add("color_error_texto","color_error_borde");
 }
 
 function abrirVentana(){
@@ -42,7 +65,7 @@ function procesarRegistro(evento){
 	str_usuario = JSON.stringify(usuario);
 	localStorage.setItem("usuario",str_usuario);
 
-	//ventana.showModal();
+	mensaje_exito("Muy bien, registro exitoso");
 	abrirVentana();
 	evento.preventDefault();
 

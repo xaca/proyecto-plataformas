@@ -73,6 +73,7 @@ function cambiarSesion(bandera){
     }
     else{
         cont_sesion.innerHTML = sesion_off;
+        location.href = "index.html";
     }
 }
 
@@ -113,7 +114,7 @@ function abrirPagina(evento){
 
     if(puede_ingresar)
     {
-        location.href = paginas[evento.target.id];
+        location.href = paginas[pagina];
     }
     else
     {

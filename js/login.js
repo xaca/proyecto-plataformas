@@ -54,6 +54,7 @@ function procesarLogin(evento){
 	
 	if(usuario){
 		if(usuario.correo === txt_correo && usuario.clave === txt_clave){
+			cambiarSesion(true);
 			mensaje_exito("Muy bien, logueo exitoso, continua disfrutando del sitio.");
 		}
 		else{

@@ -2,6 +2,8 @@ let contenedor_menu;
 let menu_items = [];
 let paginas = [];
 var iniciarLogin = undefined, iniciarRegistro = undefined;
+let cont_sesion;
+let logeado = false;
 const menu_html = `<li>
 <a href="javascript:void(0);" id="item_1">Home</a>
 </li>
@@ -28,11 +30,26 @@ Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
 <li>
 <a href="javascript:void(0);" id="item_6">Contact</a>
 </li>`;
+let sesion_on =`
+<span>
+    <img src="images/avatar.png" alt="">
+</span>
+<a href="javascript:void(0)" onClick="cambiarSesion(false);" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión</a>
+`;
+let sesion_off = `
+<a href="login.html" class="btn">
+<span class="fa fa-user-circle-o"></span> Login</a>
+<a href="register.html" class="btn">
+<span class="fa fa-pencil-square-o"></span> Registro</a>`;
 
 window.onload = function(){
     contenedor_menu = document.querySelector(".menu");
     contenedor_menu.innerHTML = menu_html;
     setTimeout(hideURLbar, 0);
+
+    cont_sesion = document.querySelector(".forms");
+    logeado = JSON.parse(localStorage.getItem("logeado"));
+    cont_sesion.innerHTML = sesion_off;
 
     if(iniciarLogin)
     {
@@ -45,6 +62,19 @@ window.onload = function(){
     }
 
     asignarNavegacion();
+}
+
+function cambiarSesion(bandera){
+    logeado = bandera;
+    localStorage.setItem("logeado",logeado);
+
+    if(logeado)
+    {
+        cont_sesion.innerHTML = sesion_on;
+    }
+    else{
+        cont_sesion.innerHTML = sesion_off;
+    }
 }
 
 function asignarNavegacion(){

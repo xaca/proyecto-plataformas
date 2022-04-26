@@ -102,5 +102,22 @@ function hideURLbar() {
 }
 
 function abrirPagina(evento){
-    location.href = paginas[evento.target.id];
+
+    let pagina = evento.target.id;
+    let puede_ingresar = true;
+
+    if(pagina === "item_3" || pagina === "item_4" || pagina === "item_5")
+    {
+        puede_ingresar = logeado;
+    }
+
+    if(puede_ingresar)
+    {
+        location.href = paginas[evento.target.id];
+    }
+    else
+    {
+        alert("Esta seccion requiere inicio de sesion.");
+        //TODO: Personalizar con mensaje lightbox
+    }
 }

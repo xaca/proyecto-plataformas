@@ -42,7 +42,8 @@ function abrirVentana(){
 }
 
 function cerrarVentana(evento){
-	ventana.classList.add("hidden");
+	//ventana.classList.add("hidden");
+	location.href = "index.html";
 }
 
 function procesarLogin(evento){

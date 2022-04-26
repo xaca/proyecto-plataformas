@@ -20,7 +20,9 @@ function mensaje_exito(texto_mensaje){
     btn_cerrar_modal.innerHTML = "Continuar";
     titulo.innerHTML = "Yayy!";
     mensaje.innerHTML = texto_mensaje;
+    titulo.classList.remove("color_error_texto");
     titulo.classList.add("color_exito_texto");
+    btn_cerrar_modal.classList.remove("color_error_texto","color_error_borde")
     btn_cerrar_modal.classList.add("color_exito_texto","color_exito_borde");
 }
 
@@ -29,7 +31,9 @@ function mensaje_error(texto_mensaje){
     btn_cerrar_modal.innerHTML = "Intenta nuevamente";
     titulo.innerHTML = "Oops!";
     mensaje.innerHTML = texto_mensaje;
+    titulo.classList.add("color_exito_texto");
     titulo.classList.add("color_error_texto");
+    btn_cerrar_modal.classList.remove("color_exito_texto","color_exito_borde");
     btn_cerrar_modal.classList.add("color_error_texto","color_error_borde");
 }
 

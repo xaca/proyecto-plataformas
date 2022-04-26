@@ -34,7 +34,7 @@ let sesion_on =`
 <span>
     <img src="images/avatar.png" alt="">
 </span>
-<a href="javascript:void(0)" onClick="cambiarSesion(false);" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión</a>
+<a href="javascript:void(0)" id="cerrar_sesion" onClick="cambiarSesion(false);" class="btn"><i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar sesión</a>
 `;
 let sesion_off = `
 <a href="login.html" class="btn">
@@ -63,11 +63,8 @@ window.onload = function(){
     asignarNavegacion();
 }
 
-path.split("/").pop()
-
 function cambiarSesion(bandera){
-    
-    let pagina_actual = location.pathname.split("/").pop();
+
     logeado = bandera;
     localStorage.setItem("logeado",logeado);
 
@@ -75,13 +72,20 @@ function cambiarSesion(bandera){
     {
         cont_sesion.innerHTML = sesion_on;
     }
-    else{
+    else
+    {
         cont_sesion.innerHTML = sesion_off;
-        if(pagina_actual != "index.html")
+
+        if(cerrarSesion())
         {
             location.href = "index.html";
         }
     }
+}
+
+function cerrarSesion(){
+    let pagina_actual = location.pathname.split("/").pop();
+    return (pagina_actual === paginas["item_3"] || pagina_actual === paginas["item_4"] || pagina_actual === paginas["item_5"]);
 }
 
 function asignarNavegacion(){

@@ -63,7 +63,11 @@ window.onload = function(){
     asignarNavegacion();
 }
 
+path.split("/").pop()
+
 function cambiarSesion(bandera){
+    
+    let pagina_actual = location.pathname.split("/").pop();
     logeado = bandera;
     localStorage.setItem("logeado",logeado);
 
@@ -73,7 +77,10 @@ function cambiarSesion(bandera){
     }
     else{
         cont_sesion.innerHTML = sesion_off;
-        location.href = "index.html";
+        if(pagina_actual != "index.html")
+        {
+            location.href = "index.html";
+        }
     }
 }
 

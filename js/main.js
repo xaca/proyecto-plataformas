@@ -48,8 +48,7 @@ window.onload = function(){
     setTimeout(hideURLbar, 0);
 
     cont_sesion = document.querySelector(".forms");
-    logeado = JSON.parse(localStorage.getItem("logeado"));
-    cont_sesion.innerHTML = sesion_off;
+    cambiarSesion(JSON.parse(localStorage.getItem("logeado")));
 
     if(iniciarLogin)
     {

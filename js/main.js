@@ -60,6 +60,11 @@ window.onload = function(){
         iniciarRegistro();
     }
 
+    if(productos)
+    {
+        pintarGaleria();
+    }
+
     asignarNavegacion();
 }
 
@@ -130,6 +135,7 @@ function abrirPagina(evento){
     else
     {
         alert("Esta seccion requiere inicio de sesion.");
+        location.href = "login.html";
         //TODO: Personalizar con mensaje lightbox
     }
 }

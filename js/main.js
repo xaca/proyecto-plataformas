@@ -1,7 +1,7 @@
 let contenedor_menu;
 let menu_items = [];
 let paginas = [];
-var iniciarLogin = undefined, iniciarRegistro = undefined;
+var iniciarLogin = undefined, iniciarRegistro = undefined,productos = undefined;
 let cont_sesion;
 let logeado = false;
 const menu_html = `<li>

@@ -1,4 +1,4 @@
-let productos = [];
+var productos = [];
 
 function llenarProductos(){
 	productos.push({

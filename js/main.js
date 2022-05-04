@@ -1,13 +1,14 @@
 let contenedor_menu;
 let menu_items = [];
 let paginas = [];
-var iniciarLogin = undefined, iniciarRegistro = undefined,productos = undefined;
+var productos = [];
+var iniciarLogin = undefined, iniciarRegistro = undefined;
 let cont_sesion;
 let logeado = false;
 const menu_html = `<li>
 <a href="javascript:void(0);" id="item_1">Home</a>
 </li>
-<li class="active">
+<li>
 <a href="javascript:void(0);" id="item_2">About Us</a>
 </li>
 <li>
@@ -59,12 +60,16 @@ window.onload = function(){
     {
         iniciarRegistro();
     }
-
-    if(productos)
+    //https://dmitripavlutin.com/javascript-defined-variable-checking/
+    if(window.hasOwnProperty("pintarGaleria"))
     {
+        llenarProductos();
         pintarGaleria();
     }
 
+    if(window.hasOwnProperty("leerProductoActual")){
+        leerProductoActual();
+    }
     asignarNavegacion();
 }
 
@@ -118,10 +123,19 @@ function hideURLbar() {
     window.scrollTo(0, 1);
 }
 
+function actualizarSeleccion(btn){
+    for(var i of menu_items){
+        i.classList.remove("active");
+    }
+    btn.parentElement.classList.add("active");
+}
+
 function abrirPagina(evento){
 
     let pagina = evento.target.id;
     let puede_ingresar = true;
+    
+    //actualizarSeleccion(evento.target);
 
     if(pagina === "item_3" || pagina === "item_4" || pagina === "item_5")
     {
@@ -139,3 +153,8 @@ function abrirPagina(evento){
         //TODO: Personalizar con mensaje lightbox
     }
 }
+
+const roundToPrecision = (value, decimals) => {
+  const pow = Math.pow(10, decimals);
+  return Math.round((value + Number.EPSILON) * pow) / pow;
+};

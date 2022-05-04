@@ -43,5 +43,5 @@ function pintarDetalleProducto(info_producto){
 	            <div class="clearfix"></div>
 	        </div>
 	    </div>`;
-	    contenedora.innerHTML = html;
+	    contenedor.innerHTML = html;
 }

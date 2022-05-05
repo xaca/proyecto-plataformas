@@ -132,7 +132,7 @@ function actualizarSeleccion(btn){
 }
 
 function activarPaginaActual(){
-    let btn = JSON.parse(locaslStorage.getItem("pagina_actual"));
+    let btn = JSON.parse(localStorage.getItem("pagina_actual"));
 
     if(pagina){
         actualizarSeleccion(btn);

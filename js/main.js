@@ -132,9 +132,9 @@ function actualizarSeleccion(btn){
 }
 
 function activarPaginaActual(){
-    let pagina = JSON.parse(localStorage.getItem("pagina_actual"));
+    let pagina = localStorage.getItem("pagina_actual");
     let btn;
-
+    console.log(pagina);
     if(pagina){
         btn = document.getElementById(pagina);
         actualizarSeleccion(btn);
@@ -142,7 +142,7 @@ function activarPaginaActual(){
 }
 
 function guardarPaginaActual(pagina){
-    let seleccion = JSON.stringify(pagina);
+    let seleccion = pagina;
     localStorage.setItem("pagina_actual",seleccion);
 }
 

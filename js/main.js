@@ -143,6 +143,7 @@ function activarPaginaActual(){
 
 function guardarPaginaActual(pagina){
     let seleccion = pagina;
+    console.log(pagina);
     localStorage.setItem("pagina_actual",seleccion);
 }
 

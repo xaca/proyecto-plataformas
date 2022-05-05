@@ -71,6 +71,7 @@ window.onload = function(){
         leerProductoActual();
     }
     asignarNavegacion();
+    activarPaginaActual();
 }
 
 function cambiarSesion(bandera){
@@ -130,6 +131,19 @@ function actualizarSeleccion(btn){
     btn.parentElement.classList.add("active");
 }
 
+function activarPaginaActual(){
+    let btn = JSON.parse(locaslStorage.getItem("pagina_actual"));
+
+    if(pagina){
+        actualizarSeleccion(btn);
+    }
+}
+
+function guardarPaginaActual(btn){
+    let pagina = JSON.stringify(btn);
+    localStorage.setItem("pagina_actual",pagina);
+}
+
 function abrirPagina(evento){
 
     let pagina = evento.target.id;
@@ -144,6 +158,7 @@ function abrirPagina(evento){
 
     if(puede_ingresar)
     {
+        guardarPaginaActual(evento.target);
         location.href = paginas[pagina];
     }
     else

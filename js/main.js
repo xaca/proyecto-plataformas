@@ -132,15 +132,17 @@ function actualizarSeleccion(btn){
 }
 
 function activarPaginaActual(){
-    let btn = JSON.parse(localStorage.getItem("pagina_actual"));
-
-    if(btn){
+    let pagina = JSON.parse(localStorage.getItem("pagina_actual"));
+    let btn;
+    
+    if(pagina){
+        btn = document.getElementById(pagina);
         actualizarSeleccion(btn);
     }
 }
 
-function guardarPaginaActual(btn){
-    let pagina = JSON.stringify(btn);
+function guardarPaginaActual(pagina){
+    let pagina = JSON.stringify(pagina);
     localStorage.setItem("pagina_actual",pagina);
 }
 
@@ -158,7 +160,7 @@ function abrirPagina(evento){
 
     if(puede_ingresar)
     {
-        guardarPaginaActual(evento.target);
+        guardarPaginaActual(pagina);
         location.href = paginas[pagina];
     }
     else

@@ -134,7 +134,7 @@ function actualizarSeleccion(btn){
 function activarPaginaActual(){
     let pagina = JSON.parse(localStorage.getItem("pagina_actual"));
     let btn;
-    
+
     if(pagina){
         btn = document.getElementById(pagina);
         actualizarSeleccion(btn);
@@ -142,8 +142,8 @@ function activarPaginaActual(){
 }
 
 function guardarPaginaActual(pagina){
-    let pagina = JSON.stringify(pagina);
-    localStorage.setItem("pagina_actual",pagina);
+    let seleccion = JSON.stringify(pagina);
+    localStorage.setItem("pagina_actual",seleccion);
 }
 
 function abrirPagina(evento){

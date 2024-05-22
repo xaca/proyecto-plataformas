@@ -1,11 +1,13 @@
-
 /* import { initializeApp } from "firebase/app"
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore"; */
 
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js'
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js'
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
 class Nube {
   constructor() {
@@ -24,20 +26,22 @@ class Nube {
   }
 
   async register(email, password) {
-    const response = await createUserWithEmailAndPassword(this.auth, email, password)
+    await createUserWithEmailAndPassword(
+      this.auth,
+      email,
+      password
+    )
       .then((userCredential) => {
-        // Signed up 
-        const user = userCredential.user;
-        return  {
-          user: userCredential.user, 
-        }
+        // Signed up
+        console.log("Credenciales del usuario", userCredential);
+        alert("Usuario registrado exitosamente")
+        location.href = "index.html";
+        return userCredential;
       })
       .catch((error) => {
-        return { 
-          error: true,
-          errorCode: error.code,
-          msg: error.message
-        }
+        console.error("Error", error);
+        alert("Usuario no pudo registrado");
+        return error;
       });
   }
 
@@ -49,8 +53,13 @@ class Nube {
         password
       );
       this.user = userCredential.user;
+      console.log("Credenciales del usuario", userCredential);
+      alert("Usuario logueado exitosamente")
+      location.href = "index.html";
       return userCredential;
     } catch (error) {
+      console.error("Error", error);
+        alert("Usuario no pudo loguearse");
       return error;
     }
   }
@@ -59,66 +68,13 @@ class Nube {
     this.auth
       .signOut()
       .then(() => {
-        console.log("Se cerró sesión correctamente");
+        alert("Se cerró sesión correctamente");
+        location.href = "login.html";
       })
       .catch((error) => {
         console.error(error);
       });
   }
-
-  async nuevoUsuario() {
-    return await addDoc(collection(this.db, "users"), {
-      uid: this.user.uid,
-      nombre: "Antonio",
-      email: "abc@xyz.com",
-      celular: "1234567890",
-    });
-  }
-
-  async mostrarImagenes() {
-    const storageRef = ref(this.storage, "images");
-    listAll(storageRef)
-      .then((result) => {
-        result.items.forEach((imageRef) => {
-          getDownloadURL(imageRef)
-            .then((url) => {
-              const img = document.createElement("img");
-              img.src = url;
-              img.style.width = "200px";
-              img.style.margin = "10px";
-              imagesContainer.appendChild(img);
-            })
-            .catch((error) => console.error(error));
-        });
-      })
-      .catch((error) => console.error(error));
-  }
-
-  async uploadImage(file, displayImagenes) {
-    const storageRef = ref(this.storage, "images/" + file.name);
-    uploadBytes(storageRef, file)
-      .then((snapshot) => {
-        displayImagenes();
-      })
-      .catch((error) => console.error(error));
-  }
 }
 
 export default Nube;
-/*
-  // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, "a@a.com", "123456")
-    .then((userCredential) => {
-    // Signed in 
-        console.log(userCredential);
-        //const user = userCredential.user;
-    // ...
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-    });
-*/
